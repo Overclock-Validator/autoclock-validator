@@ -12,8 +12,6 @@
 4) Create vote account https://docs.solana.com/running-validator/validator-start#create-authorized-withdrawer-account
 5) 
 
-<<7Layer question: the validator identity needs to be on the server right? we should have a step that mentions moving the validator identity keypair to the server when migrating?>>
-
 #### 1) Install Ansible locally
 ```
 https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html
@@ -70,7 +68,7 @@ repo_version: "v1.13.6-jito"
 * Other parameters can be left as is (most validators set commission to 800 basis points atm, but you can adjust that if you want to).
 
 
-
+### 7layer need to fix below part
 
 #### 9) Once Ansible finishes, switch to the Solana user with:
 ```
