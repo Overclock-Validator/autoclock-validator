@@ -4,13 +4,6 @@
 * C3.large machines have 2 disks. One of these is mounted to / and the other one needs to be supplied in the defaults.
 
 ## Steps
-1) Install Ansible locally https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html
-2) Edit the hosts.yaml file in the root location to point to your validator's IP address and the ssh parameters.
-3) basic command (???)
-4) Make sure to create `hosts.yaml` file using the `hosts.example.yaml` as a guide.
-```
-ansible-playbook setup.yaml -i hosts.yaml -e id_path=./keys/validator-keypair.json -e vote_path=./keys/vote-account-keypair.json -e region=ny -e cluster=testnet -e rpc_address=https://api.testnet.solana.com -e repo_version=v1.14.16-jito
-```
 * The above assumes that validator-keypair.json and vote-account-keypair.json have been generated using solana-keygen and that the vote-account has already been created. The Ansible playbook executes the vote-account command to see that vote-account-keypair.json actually exists and is associated with validator-keypair.json. It will fail before starting the validator if that is not the case.
 
 ### 0) If you don't already have a validator, start with the Solana docs:
@@ -46,7 +39,7 @@ cd autoclock-validator
 ### 6) Edit and configure the common main.yaml file 
 * https://github.com/overclock-validator/autoclock-validator/blob/master/roles/common/defaults/main.yaml
 * Inside this file you will see (and may need to edit):
----
+```
 ledger_disk: "nvme1n1"
 swap_mb: 100000
 ```
@@ -57,7 +50,7 @@ swap_mb: 100000
 ### 7) Edit and configure the jito main.yaml file
 * https://github.com/overclock-validator/autoclock-validator/blob/master/roles/jito/defaults/main.yaml
 * Inside this file you will see (and may need to edit):
----
+```
 # 1. Supply a valid cluster
 # testnet, mainnet
 cluster: "mainnet"
@@ -80,28 +73,55 @@ repo_version: "v1.13.6-jito"
 * The repo_version needs to be modified to whichever tag you want the validator to run. Consult Jito discord (link below) for the latest version expected to be run.
 * Other parameters can be left as is (most validators set commission to 800 basis points atm, but you can adjust that if you want to).
 
-### ????? 8) Run the Ansible command ??????
-* Below is an example
+### 8) Edit and configure below command and run Ansible
+* This step assumes that validator-keypair.json and vote-account-keypair.json have been generated using solana-keygen and that the vote-account has already been created. The Ansible playbook executes the vote-account command to see that vote-account-keypair.json actually exists and is associated with validator-keypair.json. It will fail before starting the validator if that is not the case.
+* Make sure that the solana_version is up to date and that you specify the correct cluster
 ```
 ansible-playbook setup.yaml -i hosts.yaml -e id_path=./keys/validator-keypair.json -e vote_path=./keys/vote-account-keypair.json -e region=ny -e cluster=testnet -e rpc_address=https://api.testnet.solana.com -e repo_version=v1.14.16-jito
 ```
+* This command can take between 10-20 minutes based on the specs of the machine
+* It takes long because it does everything necessary to start the validator (format disks, checkout the solana repo and build it, download the latest snapshot, etc.)
 
+### 9) Once Ansible finishes, switch to the Solana user with:
+```
+sudo su - solana
+```
 
-### 6) Run the Ansible command
+### 10) Check the status
+
 ```
-time ansible-playbook runner.yaml
+source ~/.profile
+solana-validator --ledger /mnt/solana-ledger monitor
+ledger monitor
+Ledger location: /mnt/solana-ledger
+⠉ Validator startup: SearchingForRpcService...
 ```
-- This command can take between 10-20 minutes based on the specs of the machine
-- It takes long because it does everything necessary to start the validator (format disks, checkout the solana repo and build it, download the latest snapshot, etc.)
-- Make sure that the solana_version is up to date (see below)
-- Check the values set in `defaults/main.yml` and update to the values you want
+
+#### Initially the monitor should just show the below message which will last for a few minutes and is normal:
+
+```
+⠉ Validator startup: SearchingForRpcService...
+```
+
+#### After a while, the message at the terminal should change to something similar to this:
+
+```
+⠐ 00:08:26 | Processed Slot: 156831951 | Confirmed Slot: 156831951 | Finalized Slot: 156831917 | Full Snapshot Slot: 156813730 |
+```
+
+#### Check whether the RPC is caught up with the rest of the cluster with:
+
+```
+solana catchup --our-localhost
+```
+
+If you see the message above, then everything is working fine! Gratz. You have a new RPC server and you can visit the URL at http://xx.xx.xx.xx:8899/
 
 
 ??? ### 1) Install Ansible locally ????
 ```
 https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html
 ```
-
 
 # Helpful Links
 * Solana Discord (use validator-support channel)
