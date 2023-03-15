@@ -21,7 +21,7 @@
 screen -S sol
 ```
 
-#??? ### 3) Install Ansible locally
+#### 3) Install Ansible locally
 ```
 https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html
 ```
