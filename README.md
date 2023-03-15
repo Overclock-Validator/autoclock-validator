@@ -68,7 +68,7 @@ repo_name: "jito-solana"
 repo_dir: "jito-solana"
 repo_version: "v1.13.6-jito"
 ```
-* The location as mentioned in the comment needs to be one of the 4 (for mainnet) or one of 2 (for testnet) - the validator parameters for block engine, relayer etc are set based on the nearest location to your validator server.
+* The location as mentioned in the comment needs to be one of the 4 (for mainnet) or one of 2 (for testnet) - the validator parameters for block engine, relayer, etc are set based on the nearest location to your validator server.
 * The repo_version needs to be modified to whichever tag you want the validator to run. Consult Jito discord (link below) for the latest version expected to be run.
 * Other parameters can be left as is (most validators set commission to 800 basis points atm, but you can adjust that if you want to).
 
