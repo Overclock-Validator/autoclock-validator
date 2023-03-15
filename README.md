@@ -19,10 +19,20 @@
 https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html
 ```
 
-#### 5) Edit the hosts.yaml file in the root location to point to your validator's IP address and the ssh parameters
-* Example hosts.yaml: https://github.com/Overclock-Validator/autoclock-validator/blob/master/hosts.example.yaml
+#### 2) Create a hosts.yaml file in the root location using hosts.example.yaml as template
+* Copy and rename: https://github.com/Overclock-Validator/autoclock-validator/blob/master/hosts.example.yaml
+* Edit it so that it points to your validator's IP address and needed ssh parameters
 
-#### 6) Edit and configure the common main.yaml file 
+#### 3) Edit and configure the Ansible command and run it
+* This step assumes that validator-keypair.json and vote-account-keypair.json have been generated using solana-keygen and that the vote-account has already been created. The Ansible playbook executes the vote-account command to see that vote-account-keypair.json actually exists and is associated with validator-keypair.json. It will fail before starting the validator if that is not the case.
+* Make sure that the solana_version is up to date and that you specify the correct cluster
+```
+ansible-playbook setup.yaml -i hosts.yaml -e id_path=./keys/validator-keypair.json -e vote_path=./keys/vote-account-keypair.json -e region=ny -e cluster=mainnet -e rpc_address=https://api.mainnet-beta.solana.com -e repo_version=v1.14.16-jito
+```
+* This command can take between 10-20 minutes based on the specs of the machine
+* It takes long because it does everything necessary to start the validator (format disks, checkout the solana repo and build it, download the latest snapshot, etc.)
+
+#### 4) Edit and configure the common main.yaml file 
 * https://github.com/overclock-validator/autoclock-validator/blob/master/roles/common/defaults/main.yaml
 * Inside this file you will see (and may need to edit):
 ```
@@ -33,7 +43,7 @@ swap_mb: 100000
 * The Ansible script puts the ledger on a separate disk from everything else (accounts, snapshots, OS). Ledger and snapshots are both write intensive, so it's good to separate those to different disks.
 * By default, swap_mb is set to 100gb, but for validators it's not that helpful outside of preventing a crash. If your machine is swapping however, there are other issues that need to be solved anyway.
 
-#### 7) Edit and configure the jito main.yaml file
+#### 5) Edit and configure the jito main.yaml file
 * https://github.com/overclock-validator/autoclock-validator/blob/master/roles/jito/defaults/main.yaml
 * Inside this file you will see (and may need to edit):
 ```
@@ -59,14 +69,6 @@ repo_version: "v1.13.6-jito"
 * The repo_version needs to be modified to whichever tag you want the validator to run. Consult Jito discord (link below) for the latest version expected to be run.
 * Other parameters can be left as is (most validators set commission to 800 basis points atm, but you can adjust that if you want to).
 
-#### 8) Edit and configure below command and run Ansible
-* This step assumes that validator-keypair.json and vote-account-keypair.json have been generated using solana-keygen and that the vote-account has already been created. The Ansible playbook executes the vote-account command to see that vote-account-keypair.json actually exists and is associated with validator-keypair.json. It will fail before starting the validator if that is not the case.
-* Make sure that the solana_version is up to date and that you specify the correct cluster
-```
-ansible-playbook setup.yaml -i hosts.yaml -e id_path=./keys/validator-keypair.json -e vote_path=./keys/vote-account-keypair.json -e region=ny -e cluster=testnet -e rpc_address=https://api.testnet.solana.com -e repo_version=v1.14.16-jito
-```
-* This command can take between 10-20 minutes based on the specs of the machine
-* It takes long because it does everything necessary to start the validator (format disks, checkout the solana repo and build it, download the latest snapshot, etc.)
 
 
 
