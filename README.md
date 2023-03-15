@@ -1,6 +1,6 @@
 # Autoclock Validator
 * A fast and straightforward way to spin up a Solana validator running the Jito client. 
-* The Autoclock Validator Ansible script has been designed and tested on c3.large [Latitude](https://www.latitude.sh/) servers running Ubuntu thus far. Other OS and machine/disk configurations are untested yet, but feel free to fork or submit PRs to support additional infra.
+* The Autoclock Validator Ansible script has been designed and tested on c3.large [Latitude](https://www.latitude.sh/pricing) servers running Ubuntu thus far. Other OS and machine/disk configurations are untested yet, but feel free to fork or submit PRs to support additional infra.
 * C3.large machines have 2 disks. One of these is mounted to / and the second one needs to be supplied in the defaults.
 
 ## Steps:
@@ -11,6 +11,8 @@
 3) Create withdrawer account https://docs.solana.com/running-validator/validator-start#create-authorized-withdrawer-account
 4) Create vote account https://docs.solana.com/running-validator/validator-start#create-authorized-withdrawer-account
 5) 
+
+<<7Layer question: the validator identity needs to be on the server right? we should have a step that mentions moving the validator identity keypair to the server when migrating?>>
 
 ### 1) SSH into your new server
 
