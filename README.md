@@ -14,16 +14,16 @@
 
 <<7Layer question: the validator identity needs to be on the server right? we should have a step that mentions moving the validator identity keypair to the server when migrating?>>
 
-#### 1) SSH into your new server
-
-#### 2) Start a screen session
-```
-screen -S sol
-```
-
-#### 3) Install Ansible locally
+#### 1) Install Ansible locally
 ```
 https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html
+```
+
+#### 2) SSH into your new server
+
+#### 3) Start a screen session
+```
+screen -S sol
 ```
 
 #### 4) Clone autoclock-validator repo and cd into folder
