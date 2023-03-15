@@ -1,11 +1,11 @@
 # Autoclock Validator
 * A fast and straightforward way to spin up a Solana validator running the Jito client. 
 * The Autoclock Validator Ansible script has been designed and tested on c3.large [Latitude](https://www.latitude.sh/) servers running Ubuntu thus far. Other OS and machine/disk configurations are untested yet, but feel free to fork or submit PRs to support additional infra.
-* C3.large machines have 2 disks. One of these is mounted to / and the other one needs to be supplied in the defaults.
+* C3.large machines have 2 disks. One of these is mounted to / and the second one needs to be supplied in the defaults.
 
-## Follow these steps
+## Steps:
 
-### 0) If you don't already have a validator, start with the Solana docs:
+### If you don't already have a validator, start with the Solana docs:
 1) Install Solana Tool Suite https://docs.solana.com/cli/install-solana-cli-tools
 2) Create validator identity https://docs.solana.com/running-validator/validator-start#generate-identity
 3) Create withdrawer account https://docs.solana.com/running-validator/validator-start#create-authorized-withdrawer-account
