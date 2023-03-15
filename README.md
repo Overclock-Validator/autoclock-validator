@@ -19,21 +19,6 @@
 https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html
 ```
 
-#### 2) SSH into your new server
-
-#### 3) Start a screen session
-```
-screen -S sol
-```
-
-#### 4) Clone autoclock-validator repo and cd into folder
-```
-git clone https://github.com/overclock-validator/autoclock-validator.git
-```
-```
-cd autoclock-validator
-```
-
 #### 5) Edit the hosts.yaml file in the root location to point to your validator's IP address and the ssh parameters
 * Example hosts.yaml: https://github.com/Overclock-Validator/autoclock-validator/blob/master/hosts.example.yaml
 
@@ -83,6 +68,8 @@ ansible-playbook setup.yaml -i hosts.yaml -e id_path=./keys/validator-keypair.js
 * This command can take between 10-20 minutes based on the specs of the machine
 * It takes long because it does everything necessary to start the validator (format disks, checkout the solana repo and build it, download the latest snapshot, etc.)
 
+
+
 #### 9) Once Ansible finishes, switch to the Solana user with:
 ```
 sudo su - solana
@@ -96,6 +83,13 @@ solana-validator --ledger /mnt/solana-ledger monitor
 ledger monitor
 Ledger location: /mnt/solana-ledger
 ⠉ Validator startup: SearchingForRpcService...
+```
+
+#### 2) SSH into your new server
+
+#### 3) Start a screen session
+```
+screen -S sol
 ```
 
 #### Initially the monitor should just show the below message which will last for a few minutes and is normal:
