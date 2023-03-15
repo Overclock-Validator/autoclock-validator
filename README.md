@@ -3,7 +3,7 @@
 * The Autoclock Validator Ansible script has been designed and tested on c3.large [Latitude](https://www.latitude.sh/) servers running Ubuntu thus far. Other OS and machine/disk configurations are untested yet, but feel free to fork or submit PRs to support additional infra.
 * C3.large machines have 2 disks. One of these is mounted to / and the other one needs to be supplied in the defaults.
 
-## Steps
+## Follow these steps
 
 ### 0) If you don't already have a validator, start with the Solana docs:
 1) Install Solana Tool Suite https://docs.solana.com/cli/install-solana-cli-tools
