@@ -44,7 +44,7 @@ cd autoclock-validator
 ledger_disk: "nvme1n1"
 swap_mb: 100000
 ```
-* ledger_disk needs to point to the disk on the c3.large that is not currently mounted, which you can verify this using `sudo fdisk -l`
+* ledger_disk needs to point to the nvme disk on the c3.large that is not currently mounted, which you can find using `lsblk`
 * The Ansible script puts ledger on a separate disk and everything else (accounts, snapshots, OS) on the default disk (ledger and snapshot are both write intensive, so it's good to separate those to different disks).
 * By default, swap_mb is set to 100gb, but for validators it's not that helpful outside of preventing a crash. If your machine is swapping however, there are other issues that need to be solved anyway.
 
