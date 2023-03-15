@@ -21,9 +21,9 @@
 screen -S sol
 ```
 
-### 3) Install Ansible
+#??? ### 3) Install Ansible locally
 ```
-sudo apt-get update && sudo apt-get install ansible -y
+https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html
 ```
 
 ### 4) Clone autoclock-validator repo and cd into folder
@@ -118,11 +118,6 @@ solana catchup --our-localhost
 
 If you see the message above, then everything is working fine! Gratz. You have a new RPC server and you can visit the URL at http://xx.xx.xx.xx:8899/
 
-
-??? ### 1) Install Ansible locally ????
-```
-https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html
-```
 
 # Helpful Links
 * Solana Discord (use validator-support channel)
