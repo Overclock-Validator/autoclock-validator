@@ -10,7 +10,7 @@
 2) Create validator identity https://docs.solana.com/running-validator/validator-start#generate-identity
 3) Create withdrawer account https://docs.solana.com/running-validator/validator-start#create-authorized-withdrawer-account
 4) Create vote account https://docs.solana.com/running-validator/validator-start#create-authorized-withdrawer-account
-5) *******
+5) 
 
 ### 1) SSH into your new server
 
