@@ -4,7 +4,6 @@
 * C3.large machines have 2 disks. One of these is mounted to / and the other one needs to be supplied in the defaults.
 
 ## Steps
-* The above assumes that validator-keypair.json and vote-account-keypair.json have been generated using solana-keygen and that the vote-account has already been created. The Ansible playbook executes the vote-account command to see that vote-account-keypair.json actually exists and is associated with validator-keypair.json. It will fail before starting the validator if that is not the case.
 
 ### 0) If you don't already have a validator, start with the Solana docs:
 1) Install Solana Tool Suite https://docs.solana.com/cli/install-solana-cli-tools
