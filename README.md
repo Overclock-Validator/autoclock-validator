@@ -18,7 +18,7 @@ https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.
 
 #### 2) Create a hosts.yaml file in the root location using hosts.example.yaml as template
 * https://github.com/Overclock-Validator/autoclock-validator/blob/master/hosts.example.yaml
-* Edit it so that it points to your validator's IP address and needed ssh parameters
+* Edit hosts.yaml so that it points to your validator's IP address and needed ssh parameters
 
 #### 3) Edit and configure the Ansible command and run it
 * This step assumes that validator-keypair.json and vote-account-keypair.json have been generated using solana-keygen and that the vote-account has already been created. The Ansible playbook executes the vote-account command to see that vote-account-keypair.json actually exists and is associated with validator-keypair.json. It will fail before starting the validator if that is not the case.
