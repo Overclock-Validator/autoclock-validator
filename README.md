@@ -68,12 +68,7 @@ repo_version: "v1.13.6-jito"
 * Other parameters can be left as is (most validators set commission to 800 basis points atm, but you can adjust that if you want to).
 
 
-### 7layer need to fix below part
-
-#### 9) Once Ansible finishes, switch to the Solana user with:
-```
-sudo su - solana
-```
+### PART BELOW NEED TO FIX -- copy pasted part of autoclock-rpc with some monitoring steps
 
 #### 10) Check the status
 
@@ -110,13 +105,13 @@ screen -S sol
 solana catchup --our-localhost
 ```
 
-If you see the message above, then everything is working fine! Gratz. You have a new RPC server and you can visit the URL at http://xx.xx.xx.xx:8899/
+If you see the message above, then everything is working fine! gratz. You have a new RPC server and you can visit the URL at http://xx.xx.xx.xx:8899/
 
 
 # Helpful Links
-* Solana Discord (use validator-support channel)
+* [Solana Discord](https://discord.gg/ZmYnApcbTj) (use validator-support channel)
 * Jito Discord
-* Overclock Discord
+* [Overclock Discord](https://discord.gg/M8KZh4Waz6)
 
 # TODO
 * support different disk configurations
