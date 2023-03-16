@@ -69,6 +69,13 @@ repo_version: "v1.13.6-jito"
 
 ### PART BELOW NEED TO FIX -- copy pasted part of autoclock-rpc with some monitoring steps
 
+#### 2) SSH into your new server
+
+#### 3) Start a screen session
+```
+screen -S sol
+```
+
 #### 10) Check the status
 
 ```
@@ -77,13 +84,6 @@ solana-validator --ledger /mnt/solana-ledger monitor
 ledger monitor
 Ledger location: /mnt/solana-ledger
 ⠉ Validator startup: SearchingForRpcService...
-```
-
-#### 2) SSH into your new server
-
-#### 3) Start a screen session
-```
-screen -S sol
 ```
 
 #### Initially the monitor should just show the below message which will last for a few minutes and is normal:
