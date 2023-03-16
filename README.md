@@ -17,7 +17,7 @@ https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.
 ```
 
 #### 2) Create a hosts.yaml file in the root location using hosts.example.yaml as template
-* Copy and rename: https://github.com/Overclock-Validator/autoclock-validator/blob/master/hosts.example.yaml
+* https://github.com/Overclock-Validator/autoclock-validator/blob/master/hosts.example.yaml
 * Edit it so that it points to your validator's IP address and needed ssh parameters
 
 #### 3) Edit and configure the Ansible command and run it
