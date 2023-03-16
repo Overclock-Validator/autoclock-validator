@@ -108,12 +108,12 @@ solana catchup --our-localhost
 If you see the message above, then everything is working fine! gratz. You have a new RPC server and you can visit the URL at http://xx.xx.xx.xx:8899/
 
 
-# Helpful Links
+### Helpful Links
 * [Solana Discord](https://discord.gg/ZmYnApcbTj) (validator-support channel)
 * Jito Discord ***ADD INVITE LINK***
 * [Overclock Discord](https://discord.gg/M8KZh4Waz6) (autoclock channel
 
-# TODO
+### TODO
 * support different disk configurations
 * support skipping disk setup
 * support flag to make starting the validator optional
