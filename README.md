@@ -99,7 +99,7 @@ screen -S sol
 ⠐ 00:08:26 | Processed Slot: 156831951 | Confirmed Slot: 156831951 | Finalized Slot: 156831917 | Full Snapshot Slot: 156813730 |
 ```
 
-#### Check whether the RPC is caught up with the rest of the cluster with:
+#### Check whether the validator is caught up with the rest of the cluster with:
 
 ```
 solana catchup --our-localhost
@@ -107,6 +107,8 @@ solana catchup --our-localhost
 
 If you see the message above, then everything is working fine! gratz. You have a new RPC server and you can visit the URL at http://xx.xx.xx.xx:8899/
 
+
+#### Check if vote transactions are landing
 
 ### Helpful Links
 * [Solana Discord](https://discord.gg/ZmYnApcbTj) (validator-support channel)
