@@ -7,10 +7,9 @@
 
 #### If you don't already have a validator, start with the Solana docs:
 1) Install Solana Tool Suite https://docs.solana.com/cli/install-solana-cli-tools
-2) Create validator identity https://docs.solana.com/running-validator/validator-start#generate-identity
-3) Create withdrawer account https://docs.solana.com/running-validator/validator-start#create-authorized-withdrawer-account
-4) Create vote account https://docs.solana.com/running-validator/validator-start#create-authorized-withdrawer-account
-5) 
+2) Create validator identity keypair https://docs.solana.com/running-validator/validator-start#generate-identity
+3) Create withdrawer account keypair https://docs.solana.com/running-validator/validator-start#create-authorized-withdrawer-account
+4) Create vote account keypair https://docs.solana.com/running-validator/validator-start#create-authorized-withdrawer-account
 
 #### 1) Install Ansible locally
 ```
